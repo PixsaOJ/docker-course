@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t pixsa/docker-course -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true pixsa/docker-course npm run test
+
